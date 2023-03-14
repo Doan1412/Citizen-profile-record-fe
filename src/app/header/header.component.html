@@ -1,0 +1,84 @@
+<div class="header">
+    <div class="img-btn">
+        <a href="#" onclick="redirectHome()" class="logo">
+            <img src="https://dichvucong.gov.vn/p/home/theme/img/header/logo.png" height="83">
+        </a>
+        <div class="btnn" *ngIf="!isLogin">
+            <button type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark">Đăng nhập</button>
+        </div>
+    </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-secondary p-2 text-dark bg-opacity-10">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Navbar brand -->
+            <a class="navbar-brand" href="#">
+                <img src="https://cdn-icons-png.flaticon.com/512/553/553416.png" height="30" alt="" loading="lazy" />
+
+            </a>
+
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" (click)="basicNavbar.toggle()" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" mdbCollapse #basicNavbar="mdbCollapse">
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" routerLink="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Politician Information</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Requirements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Feedback</a>
+                    </li>
+                    <div mdbDropdown class="dropdown nav-item">
+                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow dr" type="button"
+                            id="dropdownMenuLink" aria-expanded="false" mdbDropdownToggle>
+                            Dr
+                        </a>
+                        <ul mdbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                </ul>
+                <!-- Left links -->
+                <div class="acc" *ngIf="isLogin">
+                    <div class="dropdown acc" mdbDropdown>
+                        <a class="dropdown-toggle d-flex align-items-center" id="dropdownMenuButton" role="button"
+                            data-bs-toggle="dropdown" data-mdb-display="static" aria-expanded="false" mdbDropdownToggle>
+                            <img src="https://cdn-icons-png.flaticon.com/512/1144/1144709.png" class="rounded-circle"
+                                id="avatar" height="30" loading="lazy" />
+                        </a>
+                        <ul mdbDropdownMenu class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink2">
+                            <li><a class="dropdown-item " href="#">My profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+
+                        <div id="ex2">
+                            <span class="fa-stack has-badge noti" data-count="2">
+                                <i class="fa fa-bell fa-stack-1x"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+</div>

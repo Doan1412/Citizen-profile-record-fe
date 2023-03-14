@@ -1,0 +1,75 @@
+.img-btn {
+    margin-top:16px;
+    margin-bottom: 16px;
+    margin-left:0px;
+    padding-left: 160px;
+    display: flex;
+    width: 100%;
+}
+.logo{
+    display: inline;
+}
+.btnn{
+    display: inline;
+    margin-top: 17px;
+    margin-left: 370px;
+}
+.name{
+    font-size: 20px;
+    padding-left: 10px;
+}
+.acc{
+    margin-right: 30px;
+    margin-bottom: -2px;
+    display: flex;
+}
+.container-fluid{
+    margin-left: 130px;
+}
+nav {
+    font-size: 17.5px;
+}
+.nav-item{
+    margin-top:9px;
+    margin-left: 20px;
+}
+.dropdown-toggle{
+    display: flex;
+    margin-top:-3px;
+}
+.avatar{
+    margin-left: 0px;
+}
+.dropdown-item:hover { 
+    background-color: #ce8263 !important; 
+}
+.dr{
+    margin-top:9px;
+    margin-left: 9px;
+}
+
+#ex2 .fa-stack[data-count]:after {
+    position: absolute;
+    right: 0%;
+    top: 1%;
+    content: attr(data-count);
+    font-size: 40%;
+    padding: .6em;
+    border-radius: 999px;
+    line-height: .75em;
+    color: white;
+    background: rgba(255, 0, 0, 0.85);
+    text-align: center;
+    min-width: 2em;
+    font-weight: bold;
+  }
+ .noti{
+    margin-right: 0;
+    display:  inline-block;
+    margin-bottom: 0px;
+    margin-right: 17px;
+  }
+  i{
+    font-size:23px;
+    margin-bottom: 0px;
+  }

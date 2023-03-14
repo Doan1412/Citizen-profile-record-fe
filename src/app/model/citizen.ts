@@ -1,0 +1,19 @@
+export interface Citizen {
+    id:bigint;
+    name:string;
+    birth:string;
+    idFamiliar:bigint;
+    gender:boolean;
+    ethnic:string;
+    religion:string;
+    nationality:string;
+    address:string;
+    location:Location;
+    profession:string;
+    criminalRecord:string;
+    email:string;
+    phone:string;
+    married:boolean;
+    imgUrl:string;
+    militaryService:boolean;
+}

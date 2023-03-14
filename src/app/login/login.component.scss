@@ -1,0 +1,33 @@
+
+.container {
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+  }
+  .content {
+    margin-top: 0;
+    text-align: center;
+    position: relative;
+  }
+  .body {
+    background-color: #c8c8c8;
+  }
+  .login-form {
+    border: solid 1px #979797;
+    height: 450px;
+    width: 450px;
+  }
+  .title{
+    font-size:25px;
+    padding-top: 40px;
+    color: #3a3a3a;
+  }
+  .img-sgv{
+    margin-top: 0;
+    margin-bottom: 50px;
+  }
+  form{
+    margin: 50px 30px;
+  }
