@@ -4,7 +4,8 @@
             <img src="https://dichvucong.gov.vn/p/home/theme/img/header/logo.png" height="83">
         </a>
         <div class="btnn" *ngIf="!isLogin">
-            <button type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark">Đăng nhập</button>
+            <button type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark" routerLink="/login">Đăng
+                nhập</button>
         </div>
     </div>
     <!-- Navbar -->
@@ -40,7 +41,7 @@
                         <a class="nav-link active" href="#">Requirements</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Feedback</a>
+                        <a class="nav-link active" routerLink="/feedback">Feedback</a>
                     </li>
                     <div mdbDropdown class="dropdown nav-item">
                         <a class="dropdown-toggle d-flex align-items-center hidden-arrow dr" type="button"
@@ -62,16 +63,18 @@
                             <img src="https://cdn-icons-png.flaticon.com/512/1144/1144709.png" class="rounded-circle"
                                 id="avatar" height="30" loading="lazy" />
                         </a>
-                        <ul mdbDropdownMenu class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink2">
-                            <li><a class="dropdown-item " href="#">My profile</a></li>
+                        <ul mdbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+                            <li><a class="dropdown-item " routerLink="/my-profile">My profile</a></li>
                             <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                            <li><a class="dropdown-item" routerLink="/login" (click)="logout()">Logout</a></li>
                         </ul>
 
                         <div id="ex2">
-                            <span class="fa-stack has-badge noti" data-count="2">
-                                <i class="fa fa-bell fa-stack-1x"></i>
-                            </span>
+                            <a>
+                                <span class="fa-stack has-badge noti" data-count="2">
+                                    <i class="fa fa-bell fa-stack-1x"></i>
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>

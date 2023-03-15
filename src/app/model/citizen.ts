@@ -1,14 +1,16 @@
+import { Locationn } from './location';
+
 export interface Citizen {
     id:bigint;
     name:string;
-    birth:string;
-    idFamiliar:bigint;
+    birth:Date;
+    idFamily:bigint;
     gender:boolean;
     ethnic:string;
     religion:string;
     nationality:string;
     address:string;
-    location:Location;
+    location:Locationn;
     profession:string;
     criminalRecord:string;
     email:string;

@@ -1,4 +1,4 @@
-export interface Location {
+export interface Locationn {
     quarter: string;
     town: string;
     district: string;

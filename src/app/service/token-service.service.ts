@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import * as moment from "moment";
 import { LoginResponse } from '../model/loginResponse';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -16,10 +17,15 @@ export class TokenServiceService {
     return this.http.post<LoginResponse>(`http://localhost:8080/api/v1/auth/authenticate`, {citizen_id, password})
     .subscribe(response => {
       // login successful if there's a jwt token in the response
-      if (response && response.token) {
+      if (response && response.accessToken) {
         
         // store access token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('currentUser', JSON.stringify({ citizen_id, token: response.token, role: response.role, refreshToken: response.refreshToken}));
+        //localStorage.setItem('currentUser', JSON.stringify({ citizen_id, token: response.token, role: response.role, refreshToken: response.refreshToken}));
+        localStorage.setItem('citizen_id',citizen_id);
+        localStorage.setItem('accessToken', response.accessToken);
+        localStorage.setItem('role', JSON.stringify(response.role));
+        localStorage.setItem('refreshToken', response.refreshToken);
+        localStorage.setItem('expiryDuration',response.expiryDuration.toString());
         console.log("User is logged in");
         this.router.navigateByUrl('/');
       }
@@ -32,7 +38,8 @@ export class TokenServiceService {
   //   localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
   // }
   logout() {
-    localStorage.removeItem('currentUser');
+    localStorage.clear();
+    this.http.get<any>(`http://localhost:8080/api/v1/auth/signout`);
   }
   public isLoggedIn() {
     return moment().isBefore(this.getExpiration());
@@ -47,4 +54,16 @@ export class TokenServiceService {
     const expiresAt = moment().valueOf()+5*60*60*1000;
     return moment(expiresAt);
   }
+  refreshToken(): Observable<LoginResponse> {
+    const refreshToken = localStorage.getItem('refreshToken');
+    return this.http.post<LoginResponse>(`http://localhost:8080/api/v1/auth/refreshtoken`, { refreshToken }).pipe(
+      tap((res: LoginResponse) => {
+        localStorage.setItem('access_token', res.accessToken);
+        localStorage.setItem('refresh_token', res.refreshToken);
+        const expiresAt = new Date().getTime() + res.expiryDuration * 1000;
+        localStorage.setItem('expires_at', JSON.stringify(expiresAt));
+      })
+    );
+  }
+
 }

@@ -1,7 +1,8 @@
 import { argThresholdOpts } from "moment";
 
 export interface LoginResponse {
-    token: string;
+    accessToken: string;
     role: Array<string>;
     refreshToken: string;
+    expiryDuration: number;
 }

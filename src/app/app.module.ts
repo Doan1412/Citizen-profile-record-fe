@@ -32,6 +32,8 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -44,6 +46,8 @@ export function tokenGetter() {
     FooterComponent,
     AboutComponent,
     HomeComponent,
+    MyProfileComponent,
+    FeedbackComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,84 @@
+<app-header></app-header>
+<div class="col">
+    <div class="row">
+        <div class="col-md-2">.col-md-8</div>
+        <div class="col-md-10">
+            <mdb-tabs [justified]="true">
+                <mdb-tab title="Profile">
+                    <div class="tab">
+                        <div class="tilBox">
+                            <i class="fa fa-id-card" aria-hidden="true"></i>
+                            <span class="til">
+                                PERSONAL INFORMATION
+                            </span>
+                        </div>
+                        <div class="profile">
+                            <h2>Citizen id</h2>
+                            <p>{{citizen.id}}</p>
+                            <h2>Full Name</h2>
+                            <p>{{citizen.name}}</p>
+                            <h2>Birthday</h2>
+                            <p>{{citizen.birth | date:'dd / MM / yyyy'}}</p>
+                            <h2>Gender</h2>
+                            <p *ngIf="citizen.gender" >Male</p>
+                            <p *ngIf="!citizen.gender" >Female</p>
+                            <h2>Nationality</h2>
+                            <p>{{citizen.nationality}}</p>
+                            <h2>Ethnic</h2>
+                            <p>{{citizen.ethnic}}</p>
+                            <h2>Address</h2>
+                            <p>{{address}}</p>
+                            <h2>profession</h2>
+                            <p>{{citizen.profession}}</p>
+                            <h2>Marital status</h2>
+                            <p *ngIf="citizen.married">Married</p>
+                            <p *ngIf="!citizen.married">Single</p>
+                            <h2>Email</h2>
+                            <p>{{citizen.email}} <button class="btn">update</button></p>
+                            <h2>phone</h2>
+                            <p>{{citizen.phone}}<button class="btn">Change</button></p>
+                          </div>
+                    </div>
+                </mdb-tab>
+                <mdb-tab title="Family">
+                    <div class="tab">
+                        <div class="tilBox">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                            <span class="til">
+                                FAMILY INFORMATION
+                            </span>
+                        </div>
+                        <div class="profile">
+                            <h2>Family id</h2>
+                            <p>{{citizen.idFamily}}</p>
+                            <h2>Full Name</h2>
+                            <p>{{citizen.name}}</p>
+                            <h2>Birthday</h2>
+                            <p>{{citizen.birth | date:'dd / MM / yyyy'}}</p>
+                            <h2>Gender</h2>
+                            <p *ngIf="citizen.gender" >Male</p>
+                            <p *ngIf="!citizen.gender" >Female</p>
+                            <h2>Nationality</h2>
+                            <p>{{citizen.nationality}}</p>
+                            <h2>Ethnic</h2>
+                            <p>{{citizen.ethnic}}</p>
+                            <h2>Address</h2>
+                            <p>{{address}}</p>
+                            <h2>profession</h2>
+                            <p>{{citizen.profession}}</p>
+                            <h2>Marital status</h2>
+                            <p *ngIf="citizen.married">Married</p>
+                            <p *ngIf="!citizen.married">Single</p>
+                            <h2>Email</h2>
+                            <p>{{citizen.email}} <button class="btn">update</button></p>
+                            <h2>phone</h2>
+                            <p>{{citizen.phone}}<button class="btn">Change</button></p>
+                          </div>
+                    </div>
+                </mdb-tab>
+                <mdb-tab title="Criminal record">Tab content 3</mdb-tab>
+            </mdb-tabs>
+        </div>
+    </div>
+
+</div>
