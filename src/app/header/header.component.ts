@@ -1,7 +1,7 @@
 import { TokenServiceService } from './../service/token-service.service';
 import { Citizen } from './../model/citizen';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpServiceService } from '../service/http-service.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class HeaderComponent {
   constructor(
     private tokenService: TokenServiceService,
     private httpService: HttpServiceService,
-    private activatedRoute: ActivatedRoute
+    private router: Router
   ) {}
   public ngOnInit(): void {
     var id=0;
@@ -30,6 +30,10 @@ export class HeaderComponent {
           // console.log(data);
           this.citizen=data;
         });
+    }
+    else {
+      this.router.navigate(['/login']);
+      console.log("bun");
     }
   }
   public logout(): void {

@@ -29,7 +29,7 @@ export class InterceptorServiceService implements HttpInterceptor {
         },
       });
       console.log('t1');
-      if (request.url === `http://localhost:8080/api/v1/auth/refreshtoken`) {
+      if (request.url === `http://localhost:8080/api/v1/auth/refreshtoken`||request.url === `https://cdn.jsdelivr.net/gh/vietblogdao/js/districts.min.js`) {
         request = request.clone({
           headers: request.headers.delete('Authorization')
         });
@@ -80,7 +80,7 @@ export class InterceptorServiceService implements HttpInterceptor {
     }
     else {
       console.log("t2");
-      this.router.navigateByUrl('/login');
+      this.router.navigate(['/login']);
     }
     console.log("t3");
     return next.handle(request);
