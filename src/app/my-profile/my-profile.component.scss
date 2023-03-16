@@ -11,6 +11,7 @@ $primary:#ce8585;
 }
 .row{
     margin-top: 50px;
+    margin-bottom: 150px;
 }
 .tab{
     margin-bottom: 50px;
@@ -78,4 +79,8 @@ $primary:#ce8585;
   .btn:hover {
     text-decoration: underline;
     font-weight: 900;
+  }
+  img{
+    position: sticky;
+    top: 80px;
   }

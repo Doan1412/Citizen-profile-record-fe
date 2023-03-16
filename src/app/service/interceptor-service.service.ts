@@ -29,25 +29,51 @@ export class InterceptorServiceService implements HttpInterceptor {
         },
       });
       console.log('t1');
+      if (request.url === `http://localhost:8080/api/v1/auth/refreshtoken`) {
+        request = request.clone({
+          headers: request.headers.delete('Authorization')
+        });
+      }
       return next.handle(request).pipe(
         catchError((error) => {
-          if (error.status === 401 && !request.url.includes('/refreshtoken')) {
+          if(error.status === 403){
             return this.tokenService.refreshToken().pipe(
-              switchMap((response: LoginResponse) => {
-                request = request.clone({
-                  setHeaders: {
-                    Authorization: `Bearer ${response.accessToken}`,
-                  },
-                });
-                return next.handle(request);
-              }),
-              catchError(() => {
-                this.tokenService.logout();
-                this.router.navigateByUrl('/login');
-                return throwError(error);
-              })
-            );
+                  switchMap((response: LoginResponse) => {
+                    console.log(response);
+                    localStorage.setItem('accessToken',response.accessToken);
+                    request = request.clone({
+                      setHeaders: {
+                        Authorization: `Bearer ${response.accessToken}`,
+                      },
+                    });
+                    return next.handle(request);
+                  }),
+                  catchError(() => {
+                    this.tokenService.logout();
+                    this.router.navigateByUrl('/login');
+                    return throwError(error);
+                  })
+                );
           }
+          // if (error.status === 401 && !request.url.includes('/refreshtoken')) {
+          //   return this.tokenService.refreshToken().pipe(
+          //     switchMap((response: LoginResponse) => {
+          //       console.log(response);
+          //       localStorage.setItem('accessToken',response.accessToken);
+          //       request = request.clone({
+          //         setHeaders: {
+          //           Authorization: `Bearer ${response.accessToken}`,
+          //         },
+          //       });
+          //       return next.handle(request);
+          //     }),
+          //     catchError(() => {
+          //       this.tokenService.logout();
+          //       this.router.navigateByUrl('/login');
+          //       return throwError(error);
+          //     })
+          //   );
+          // }
           return throwError(error);
         })
       );

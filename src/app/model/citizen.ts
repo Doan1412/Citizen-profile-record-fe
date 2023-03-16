@@ -4,7 +4,7 @@ export interface Citizen {
     id:bigint;
     name:string;
     birth:Date;
-    idFamily:bigint;
+    family:bigint;
     gender:boolean;
     ethnic:string;
     religion:string;
@@ -18,4 +18,5 @@ export interface Citizen {
     married:boolean;
     imgUrl:string;
     militaryService:boolean;
+    homeOwnerRelationship:string;
 }

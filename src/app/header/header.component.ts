@@ -27,7 +27,7 @@ export class HeaderComponent {
       this.httpService
         .getCitizenInfor(id)
         .subscribe((data) => {
-          console.log(data);
+          // console.log(data);
           this.citizen=data;
         });
     }

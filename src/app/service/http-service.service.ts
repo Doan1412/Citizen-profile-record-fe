@@ -17,4 +17,8 @@ export class HttpServiceService {
     const url=`${this.Rest_API_SERVER}citizen/listCitizen/id=`+id;
     return this.httpClient.get<Citizen>(url,this.httpOptions);
   }
+  public getFamilyInfo(id:number):Observable<Array<Citizen>>{
+    const  url=`${this.Rest_API_SERVER}citizen/family/id=`+id;
+    return this.httpClient.get<Array<Citizen>>(url,this.httpOptions);
+  }
 }

@@ -1,5 +1,6 @@
+import { Citizen } from './../model/citizen';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import * as moment from "moment";
@@ -56,10 +57,11 @@ export class TokenServiceService {
   }
   refreshToken(): Observable<LoginResponse> {
     const refreshToken = localStorage.getItem('refreshToken');
-    return this.http.post<LoginResponse>(`http://localhost:8080/api/v1/auth/refreshtoken`, { refreshToken }).pipe(
+    const citizenId = localStorage.getItem('citizen_id');
+    return this.http.post<LoginResponse>(`http://localhost:8080/api/v1/auth/refreshtoken`, { refreshToken, citizenId}).pipe(
       tap((res: LoginResponse) => {
         localStorage.setItem('access_token', res.accessToken);
-        localStorage.setItem('refresh_token', res.refreshToken);
+        //localStorage.setItem('refresh_token', res.refreshToken);
         const expiresAt = new Date().getTime() + res.expiryDuration * 1000;
         localStorage.setItem('expires_at', JSON.stringify(expiresAt));
       })
