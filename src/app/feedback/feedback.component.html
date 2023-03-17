@@ -1,35 +1,79 @@
 <app-header></app-header>
 <div class="col">
-    <nav aria-label="breadcrumb" class="brCr">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Feedback</li>
-        </ol>
-    </nav>
-    <div class="container">
-        <h1>Tiếp nhận phản ánh kiến nghị</h1>
-        <div style="display: inline-block;">Citizen id</div>
-        <div style="display: inline-block;">
-            <mdb-form-control>
-                <input mdbInput type="text" id="typeText" class="form-control" />
-                <label mdbLabel class="form-label" for="typeText">Citizen id</label>
-              </mdb-form-control>
+  <nav aria-label="breadcrumb" class="brCr">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Feedback</li>
+    </ol>
+  </nav>
+  <div class="container">
+    <h1>Tiếp nhận phản ánh kiến nghị</h1>
+    <div class="form">
+      <div class="row">
+        <div class="col-md-4">
+          <span>Citizen id</span>
         </div>
-        <br>
-        <div style="display: inline-block;">Address</div>
-        <select id="city" (change)="changeCity($event)">
+        <div class="col-md-7">
+          <div>
+            <mdb-form-control>
+              <input mdbInput type="text" id="typeText" class="form-control" [(ngModel)]="id" />
+              <label mdbLabel class="form-label" for="typeText"
+                >Citizen id</label
+              >
+            </mdb-form-control>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <span>Feedback about</span>
+        </div>
+        <div class="col-md-7">
+          <mdb-form-control>
+            <input mdbInput type="text" id="typeText" class="form-control" />
+            <label mdbLabel class="form-label" for="typeText"
+              >Feedback title</label
+            >
+          </mdb-form-control>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <span>Content</span>
+        </div>
+        <div class="col-md-7">
+          <mdb-form-control>
+            <textarea
+              mdbInput
+              class="form-control"
+              id="textAreaExample"
+              rows="5"
+              [(ngModel)]="content"
+            ></textarea>
+            <label mdbLabel class="form-label" for="textAreaExample"
+              >Content</label
+            >
+          </mdb-form-control>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="submit()" onclick="toastr.success('Hi! I am success message.');">Send</button>
+    <!-- <div>
+      <span>
+        Receiving Agency/Organization
+      </span>
+      <select id="city" (change)="changeCity($event)" style="display: inline-block;">
             <option *ngFor="let d of data" value="{{ d.city }}">
               {{ d.city }}
             </option>
           </select>
-          <br />
-          Quận / Huyện:
-          <select id="district">
+          <select id="district" style="display: inline-block;">
             <option *ngFor="let district of districts" value="{{ district }}">
               {{ district }}
             </option>
           </select>
           <input class="billing_address_1" name="" type="hidden" value="">
           <input class="billing_address_2" name="" type="hidden" value="">
-    </div>
+    </div> -->
+  </div>
 </div>

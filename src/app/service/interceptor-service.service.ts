@@ -39,7 +39,6 @@ export class InterceptorServiceService implements HttpInterceptor {
           if(error.status === 403){
             return this.tokenService.refreshToken().pipe(
                   switchMap((response: LoginResponse) => {
-                    console.log(response);
                     localStorage.setItem('accessToken',response.accessToken);
                     request = request.clone({
                       setHeaders: {
