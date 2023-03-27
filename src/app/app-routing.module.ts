@@ -5,6 +5,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { AppointmentComponent } from './appointment/appointment.component';
+import { RequirementsComponent } from './requirements/requirements.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -29,6 +31,14 @@ const routes: Routes = [
   {
     path: 'feedback',
     component: FeedbackComponent,
+  },
+  {
+    path: 'appointment',
+    component: AppointmentComponent,
+  },
+  {
+    path: 'requirement',
+    component: RequirementsComponent,
   }
 ];
 

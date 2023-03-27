@@ -1,7 +1,7 @@
 import { Locationn } from './location';
 
 export interface Citizen {
-    id:bigint;
+    citizen_id:bigint;
     name:string;
     birth:Date;
     family:bigint;

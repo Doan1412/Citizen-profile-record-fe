@@ -47,9 +47,11 @@ export class InterceptorServiceService implements HttpInterceptor {
                     });
                     return next.handle(request);
                   }),
-                  catchError(() => {
-                    this.tokenService.logout();
-                    this.router.navigateByUrl('/login');
+                  catchError((e) => {
+                    if(e.status === 403){
+                      this.tokenService.logout();
+                      this.router.navigateByUrl('/login');
+                    }
                     return throwError(error);
                   })
                 );

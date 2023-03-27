@@ -16,7 +16,7 @@
         <div class="col-md-7">
           <div>
             <mdb-form-control>
-              <input mdbInput type="text" id="typeText" class="form-control" [(ngModel)]="id" />
+              <input mdbInput type="text" id="typeText" class="form-control" [(ngModel)]="id" required="required" />
               <label mdbLabel class="form-label" for="typeText"
                 >Citizen id</label
               >
@@ -30,7 +30,7 @@
         </div>
         <div class="col-md-7">
           <mdb-form-control>
-            <input mdbInput type="text" id="typeText" class="form-control" />
+            <input mdbInput type="text" id="typeText" class="form-control" [(ngModel)]="topic" required="required"/>
             <label mdbLabel class="form-label" for="typeText"
               >Feedback title</label
             >
@@ -44,6 +44,7 @@
         <div class="col-md-7">
           <mdb-form-control>
             <textarea
+              required="required"
               mdbInput
               class="form-control"
               id="textAreaExample"
@@ -57,7 +58,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="btn btn-primary" (click)="submit()" onclick="toastr.success('Hi! I am success message.');">Send</button>
+    <button type="button" class="btn btn-primary" (click)="submit()">Send</button>
     <!-- <div>
       <span>
         Receiving Agency/Organization

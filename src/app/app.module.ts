@@ -34,6 +34,9 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { ToastrModule } from 'ngx-toastr';
+import { AppointmentComponent } from './appointment/appointment.component';
+import { RequirementsComponent } from './requirements/requirements.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -48,6 +51,8 @@ export function tokenGetter() {
     HomeComponent,
     MyProfileComponent,
     FeedbackComponent,
+    AppointmentComponent,
+    RequirementsComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +85,7 @@ export function tokenGetter() {
         tokenGetter: tokenGetter,
       },
     }),
+    ToastrModule.forRoot(),
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: InterceptorServiceService, multi: true }],
   bootstrap: [AppComponent],
