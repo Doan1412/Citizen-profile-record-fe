@@ -1,6 +1,6 @@
 import { Citizen } from './citizen';
 export interface Opinion {
-    id:bigint;
+    id:number;
     citizen:Citizen;
     content:string;
 }

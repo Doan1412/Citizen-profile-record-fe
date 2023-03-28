@@ -5,6 +5,7 @@ import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http'
 import { Citizen } from '../model/citizen';
 import { Observable } from 'rxjs';
 import { Appointment } from '../model/Appointment';
+import { Requirement } from '../model/Requirement';
 @Injectable({
   providedIn: 'root'
 })
@@ -33,8 +34,12 @@ export class HttpServiceService {
     const url=`${this.Rest_API_SERVER}politician/listPolitician/?levelManageEncode=`+levelManageEncode+`&areaManageEncode=`+areaManageEncode;
     return this.httpClient.get<Array<Politician>>(url,this.httpOptions);
   }
-  public addAppointment(appointment: Appointment): Observable<Appointment>{
+  public addAppointment(appointment: Appointment): Observable<any>{
     const url=`${this.Rest_API_SERVER}appointment/new`;
-    return this.httpClient.post<Appointment>(url,{appointment});
+    return this.httpClient.post<Appointment>(url,appointment);
+  }
+  public addRequirements(requirement:Requirement): Observable<any>{
+    const url=`${this.Rest_API_SERVER}requirement/new`;
+    return this.httpClient.post<Requirement>(url,requirement);
   }
 }
